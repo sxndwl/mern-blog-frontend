@@ -44,8 +44,8 @@ export const Home = () => {
                 id={obj._id}
                 title={obj.title}
                 imageUrl={
-                  data.imageUrl
-                    ? `http://94.228.164.128:4444${data.imageUrl}`
+                  obj.imageUrl
+                    ? `http://94.228.164.128:4444${obj.imageUrl}`
                     : ""
                 }
                 user={obj.user}
