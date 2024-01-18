@@ -131,7 +131,9 @@ export const AddPost = () => {
           </Button>
           <img
             className={styles.image}
-            src={`http://localhost:4444${imageUrl}`}
+            imageUrl={
+              data.imageUrl ? `http://94.228.164.128:4444${data.imageUrl}` : ""
+            }
             alt="Uploaded"
           />
         </>
