@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 import { selectIsAuth } from "../../redux/slices/auth";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import axios from "../../axios";
+import { generateImageUrl } from "../../utils";
 
 export const AddPost = () => {
   const navigate = useNavigate();
@@ -131,7 +132,7 @@ export const AddPost = () => {
           </Button>
           <img
             className={styles.image}
-            src={generateImageUrl(obj.imageUrl)}
+            src={generateImageUrl(imageUrl)}
             alt="Uploaded"
           />
         </>
