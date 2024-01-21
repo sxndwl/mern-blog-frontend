@@ -5,6 +5,7 @@ import { Post } from "../components/Post";
 import { Index } from "../components/AddComment";
 import { CommentsBlock } from "../components/CommentsBlock";
 import axios from "../axios";
+import { generateImageUrl } from "../utils";
 import ReactMarkdown from "react-markdown";
 
 export const FullPost = () => {
@@ -36,9 +37,7 @@ export const FullPost = () => {
       <Post
         id={data._id}
         title={data.title}
-        imageUrl={
-          data.imageUrl ? `http://94.228.164.128:4444${data.imageUrl}` : ""
-        }
+        imageUrl={data.imageUrl ? generateImageUrl(data.imageUrl) : ""}
         user={data.user}
         createdAt={data.createdAt}
         viewsCount={data.viewsCount}

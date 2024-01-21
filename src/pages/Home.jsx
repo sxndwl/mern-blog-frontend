@@ -7,7 +7,8 @@ import Grid from "@mui/material/Grid";
 import { Post } from "../components/Post";
 import { TagsBlock } from "../components/TagsBlock";
 import { CommentsBlock } from "../components/CommentsBlock";
-import { fetchPosts, fetchTags } from "../redux/slices/posts";
+import { clearPosts, clearTags, fetchPosts, fetchTags } from "../redux/slices/posts";
+import { generateImageUrl } from "../utils";
 
 export const Home = () => {
   const dispatch = useDispatch();
@@ -22,6 +23,11 @@ export const Home = () => {
       dispatch(fetchPosts());
       dispatch(fetchTags());
     }, 1000);
+
+    return () => {
+      dispatch(clearPosts());
+      dispatch(clearTags());
+    };
   }, []);
   return (
     <>
@@ -43,11 +49,7 @@ export const Home = () => {
                 key={obj._id}
                 id={obj._id}
                 title={obj.title}
-                imageUrl={
-                  obj.imageUrl
-                    ? `http://94.228.164.128:4444${obj.imageUrl}`
-                    : ""
-                }
+                imageUrl={obj.imageUrl ? generateImageUrl(obj.imageUrl) : ""}
                 user={obj.user}
                 createdAt={obj.createdAt}
                 viewsCount={obj.viewsCount}

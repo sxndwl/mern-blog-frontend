@@ -131,7 +131,7 @@ export const AddPost = () => {
           </Button>
           <img
             className={styles.image}
-            src={`http://94.228.164.128:4444${imageUrl}`}
+            src={generateImageUrl(obj.imageUrl)}
             alt="Uploaded"
           />
         </>

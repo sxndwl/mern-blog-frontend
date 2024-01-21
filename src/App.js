@@ -6,14 +6,15 @@ import { Home, FullPost, Registration, AddPost, Login, Error } from "./pages";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchAuthMe, selectIsAuth } from "./redux/slices/auth";
+import { Tags } from "./pages/Tags";
 
 function App() {
-  const dispatch = useDispatch()
-  const isAuth = useSelector(selectIsAuth)
+  const dispatch = useDispatch();
+  const isAuth = useSelector(selectIsAuth);
 
   useEffect(() => {
-    dispatch(fetchAuthMe())
-  }, [])
+    dispatch(fetchAuthMe());
+  }, []);
   return (
     <>
       <Header />
@@ -26,10 +27,11 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Registration />} />
           <Route path="/*" element={<Error />} />
+          <Route path="/tags/:tag" element={<Tags />} />
         </Routes>
       </Container>
     </>
   );
 }
 
-export default App;                                             
+export default App;
